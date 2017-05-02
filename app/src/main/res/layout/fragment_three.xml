@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_100"
+        android:padding="@dimen/space_35"
+        android:text="邀请好友购买保险，获5%奖励" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rly_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:stretchMode="columnWidth"></android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
