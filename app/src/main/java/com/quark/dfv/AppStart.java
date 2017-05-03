@@ -8,8 +8,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
-import com.quark.dfv.LogUploadService;
-import com.quark.dfv.R;
 import com.quark.dfv.mainview.MainActivity;
 import com.quark.dfv.util.TDevice;
 
@@ -79,7 +77,6 @@ public class AppStart extends Activity {
         startService(uploadLog);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
         finish();
     }
 

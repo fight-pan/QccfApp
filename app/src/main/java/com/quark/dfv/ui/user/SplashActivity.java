@@ -2,6 +2,8 @@ package com.quark.dfv.ui.user;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.quark.dfv.R;
 import com.quark.dfv.base.BaseActivity;
@@ -17,6 +19,9 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(new Runnable() {
@@ -24,7 +29,7 @@ public class SplashActivity extends BaseActivity {
             public void run() {
                 next();
             }
-        },2000);
+        }, 2000);
     }
 
     private void next() {

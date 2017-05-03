@@ -22,8 +22,4 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowAnimationStyle">@style/ActionSheetAnimation</item>
     </style>
-
-
-
-
 </resources>
