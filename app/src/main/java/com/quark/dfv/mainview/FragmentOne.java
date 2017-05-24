@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -28,6 +30,8 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 import static com.quark.dfv.api.Constants.url_1;
 import static com.quark.dfv.api.Constants.url_2;
@@ -41,11 +45,6 @@ import static com.quark.dfv.api.Constants.url_3;
 public class FragmentOne extends BaseFragment {
 
     View oneview;
-    @InjectView(R.id.viewbanner)
-    RecyclerViewBanner viewBanner;
-    @InjectView(R.id.GridView)
-    android.widget.GridView GridView;
-
     ModuleAdapter mlAdapter;
     InsuranceAdapter insuranceAdapter;
     ArrayList<ModuleList> moduleList;
@@ -61,28 +60,7 @@ public class FragmentOne extends BaseFragment {
         oneview = inflater.inflate(R.layout.fragment_one, container, false);
         ButterKnife.inject(this, oneview);
 
-        final List<Banner> banners = new ArrayList<>();
-        banners.add(new Banner(url_1));
-        banners.add(new Banner(url_2));
-        banners.add(new Banner(url_3));
-        viewBanner.setRvBannerData(banners);
-        viewBanner.setOnSwitchRvBannerListener(new RecyclerViewBanner.OnSwitchRvBannerListener() {
-            @Override
-            public void switchBanner(int position, final AppCompatImageView bannerView) {
-                Glide.with(bannerView.getContext())
-                        .load(banners.get(position).getUrl())
-                        .into(bannerView);
-            }
-        });
-        viewBanner.setOnRvBannerClickListener(new RecyclerViewBanner.OnRvBannerClickListener() {
-            @Override
-            public void onClick(int position) {
-                Toast.makeText(getActivity(), "position: " + position, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        SwipeRefresh.setColorSchemeColors(ContextCompat.getColor(getActivity(),R.color.red));
+        SwipeRefresh.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.red));
         SwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -105,23 +83,22 @@ public class FragmentOne extends BaseFragment {
     private void initModule() {
         insuranceLists = new ArrayList();
         InsuranceList list = new InsuranceList();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 100; i++) {
             list.setType("车险");
             list.setBrand("平安出品");
             list.setImage(url_3);
             insuranceLists.add(list);
         }
 
-        moduleList = new ArrayList();
-        mlAdapter = new ModuleAdapter(getActivity(), moduleList);
         insuranceAdapter = new InsuranceAdapter(getActivity(), insuranceLists, handler);
         ryView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        GridView.setAdapter(mlAdapter);
-        ryView.setAdapter(insuranceAdapter);
+        setHeader(ryView);
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(insuranceAdapter);
+        ryView.setAdapter(new ScaleInAnimationAdapter(alphaAdapter));
         insuranceAdapter.setOnItemClickLitener(new InsuranceAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(View view, int position) {
-
+                showToast("保险：" + position);
             }
 
             @Override
@@ -130,6 +107,41 @@ public class FragmentOne extends BaseFragment {
             }
         });
 
+    }
+
+    private void setHeader(RecyclerView ryView) {
+        View header = LayoutInflater.from(getActivity()).inflate(R.layout.header, ryView, false);
+        GridView gridView = (GridView) header.findViewById(R.id.GridView);
+        RecyclerViewBanner viewBanner = (RecyclerViewBanner) header.findViewById(R.id.viewbanner);
+        moduleList = new ArrayList();
+        mlAdapter = new ModuleAdapter(getActivity(), moduleList);
+        gridView.setAdapter(mlAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showToast(position + "：当前的");
+            }
+        });
+        final List<Banner> banners = new ArrayList<>();
+        banners.add(new Banner(url_1));
+        banners.add(new Banner(url_2));
+        banners.add(new Banner(url_3));
+        viewBanner.setRvBannerData(banners);
+        viewBanner.setOnSwitchRvBannerListener(new RecyclerViewBanner.OnSwitchRvBannerListener() {
+            @Override
+            public void switchBanner(int position, final AppCompatImageView bannerView) {
+                Glide.with(bannerView.getContext())
+                        .load(banners.get(position).getUrl())
+                        .into(bannerView);
+            }
+        });
+        viewBanner.setOnRvBannerClickListener(new RecyclerViewBanner.OnRvBannerClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(getActivity(), "position: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        insuranceAdapter.setHeaderView(header);
     }
 
     private Handler handler = new Handler() {

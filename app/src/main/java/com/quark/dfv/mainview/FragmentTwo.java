@@ -24,7 +24,6 @@ import butterknife.InjectView;
 public class FragmentTwo extends BaseFragment {
     View twoLayout;
 
-
     FgInsuranceAdapter adapter;
     ArrayList<InsuranceList> insuranceLists;
     @InjectView(R.id.ry_view)

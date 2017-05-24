@@ -1,6 +1,7 @@
 package com.quark.dfv.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class ModuleAdapter extends BaseAdapter {
         TextView tv = (TextView) convertView.findViewById(R.id.tv);
 
         if (position == 0){
-            iv.setImageDrawable(context.getResources().getDrawable(R.drawable.em_default_avatar));
+            iv.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.em_default_avatar));
             tv.setText("车机激活");
         }
         if (position == 1){

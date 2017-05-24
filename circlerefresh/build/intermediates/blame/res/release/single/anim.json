@@ -4,12 +4,20 @@
         "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_enter.xml"
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
         "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
@@ -20,23 +28,95 @@
         "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
     },
     {
         "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
         "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
     },
     {
         "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
         "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.1.1\\res\\anim\\abc_slide_out_bottom.xml"
     }
 ]

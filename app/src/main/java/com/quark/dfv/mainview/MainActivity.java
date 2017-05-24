@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -18,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.quark.dfv.AppParam;
 import com.quark.dfv.R;
@@ -166,7 +168,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         switch (index) {
             case 0:
                 oneImage.setImageResource(R.drawable.home_1);
-                oneText.setTextColor(getResources().getColor(R.color.chengse));
+                oneText.setTextColor(ContextCompat.getColor(this,R.color.red));
                 if (oneFragment == null) {
                     oneFragment = new FragmentOne();
                     transaction.add(R.id.content, oneFragment, "oneFragment");
@@ -176,7 +178,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case 1:
                 twoImage.setImageResource(R.drawable.discover_2);
-                twoText.setTextColor(getResources().getColor(R.color.chengse));
+                twoText.setTextColor(ContextCompat.getColor(this,R.color.red));
                 if (twoFragment == null) {
                     twoFragment = new FragmentTwo();
                     transaction.add(R.id.content, twoFragment, "twoFragment");
@@ -187,7 +189,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
             case 2:
                 threeImage.setImageResource(R.drawable.message_2);
-                threeText.setTextColor(getResources().getColor(R.color.chengse));
+                threeText.setTextColor(ContextCompat.getColor(this,R.color.red));
                 if (threeFragment == null) {
                     threeFragment = new FragmentThree();
                     transaction.add(R.id.content, threeFragment, "threeFragment");
@@ -197,7 +199,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case 3:
                 fourImage.setImageResource(R.drawable.me_2);
-                fourText.setTextColor(getResources().getColor(R.color.chengse));
+                fourText.setTextColor(ContextCompat.getColor(this,R.color.red));
                 if (fourFragment == null) {
                     fourFragment = new FragmentFour();
                     transaction.add(R.id.content, fourFragment, "fourFragment");
@@ -268,14 +270,33 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onPause();
     }
 
+    /**
+     * 这里用来实现,再点一次返回键退出应用
+     */
+    private long exitTime = 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键
-            exitApp();
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (System.currentTimeMillis() - exitTime > 2000) {
+                Toast.makeText(getApplicationContext(),"再按一次退出程序",Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) { //监控/拦截/屏蔽返回键
+//            exitApp();
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     private void exitApp() {
         final AlertDialog dlg = new AlertDialog.Builder(this).create();

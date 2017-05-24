@@ -3,22 +3,37 @@ package com.quark.dfv.ui.user;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.loonggg.rvbanner.lib.RecyclerViewBanner;
+import com.quark.api.auto.bean.Banner;
 import com.quark.api.auto.bean.InsuranceList;
+import com.quark.api.auto.bean.ModuleList;
 import com.quark.dfv.R;
+import com.quark.dfv.adapter.ModuleAdapter;
 import com.quark.dfv.adapter.SettingAdapter;
 import com.quark.dfv.base.BaseActivity;
+import com.quark.dfv.base.BaseRecyclerAdapter;
 import com.quark.dfv.util.TLog;
 import com.tuesda.walker.circlerefresh.CircleRefreshLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+
+import static com.quark.dfv.api.Constants.url_1;
+import static com.quark.dfv.api.Constants.url_2;
+import static com.quark.dfv.api.Constants.url_3;
 
 /**
  * Created by Administrator on 2017/4/26.
@@ -31,10 +46,11 @@ public class SettingActivity extends BaseActivity {
     SettingAdapter adapter;
     @InjectView(R.id.ry_view)
     RecyclerView ryView;
-    String url_1, url_2, url_3;
+    //    String url_1, url_2, url_3;
     @InjectView(R.id.refresh_layout)
     CircleRefreshLayout refreshLayout;
-
+    ModuleAdapter mlAdapter;
+    ArrayList<ModuleList> moduleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,29 +65,25 @@ public class SettingActivity extends BaseActivity {
     private void getData() {
         datas = new ArrayList<>();
         InsuranceList list = new InsuranceList();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 4; i++) {
             list.setImage("http://dfqc.iov-dfv.net/test001.jpg");
             list.setBrand("是的");
             list.setType("平安");
             datas.add(list);
         }
-        adapter = new SettingAdapter(this, datas, handler);
+        adapter = new SettingAdapter(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         ryView.setLayoutManager(layoutManager);
+        adapter.addDatas(datas);
         ryView.setAdapter(adapter);
-        adapter.setOnItemClickLitener(new SettingAdapter.OnItemClickLitener() {
+        adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(SettingActivity.this, "点击", Toast.LENGTH_SHORT).show();
-                refreshLayout.finishRefreshing();
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position) {
-
+            public void onItemClick(int position, Object data) {
+                showToast("当前的：" + position);
             }
         });
+        setHeader(ryView);
         refreshLayout.setOnRefreshListener(
                 new CircleRefreshLayout.OnCircleRefreshListener() {
                     @Override
@@ -96,15 +108,51 @@ public class SettingActivity extends BaseActivity {
                 });
     }
 
+    private void setHeader(RecyclerView ryView) {
+        View header = LayoutInflater.from(this).inflate(R.layout.header, ryView, false);
+        GridView gridView = (GridView) header.findViewById(R.id.GridView);
+        RecyclerViewBanner viewBanner = (RecyclerViewBanner) header.findViewById(R.id.viewbanner);
+        moduleList = new ArrayList();
+        mlAdapter = new ModuleAdapter(this, moduleList);
+        gridView.setAdapter(mlAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showToast(position + "：当前的");
+            }
+        });
+        final List<Banner> banners = new ArrayList<>();
+        banners.add(new Banner(url_1));
+        banners.add(new Banner(url_2));
+        banners.add(new Banner(url_3));
+        viewBanner.setRvBannerData(banners);
+        viewBanner.setOnSwitchRvBannerListener(new RecyclerViewBanner.OnSwitchRvBannerListener() {
+            @Override
+            public void switchBanner(int position, final AppCompatImageView bannerView) {
+                Glide.with(bannerView.getContext())
+                        .load(banners.get(position).getUrl())
+                        .into(bannerView);
+            }
+        });
+        viewBanner.setOnRvBannerClickListener(new RecyclerViewBanner.OnRvBannerClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(SettingActivity.this, "position: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        adapter.setHeaderView(header);
+    }
+
     private void addData() {
-        datas.clear();
+        adapter.removeDatas(datas);
         InsuranceList list = new InsuranceList();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 5; i++) {
             list.setImage("http://dfqc.iov-dfv.net/test003.jpg");
             list.setBrand("星星");
             list.setType("平安保险保你全家");
             datas.add(list);
         }
+        adapter.addDatas(datas);
         adapter.notifyDataSetChanged();
         refreshLayout.finishRefreshing();
     }
@@ -139,7 +187,6 @@ public class SettingActivity extends BaseActivity {
             super.handleMessage(msg);
         }
 
-        ;
     };
 
 }

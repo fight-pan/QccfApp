@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:loonggg ="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--<com.quark.dfv.ui.widget.SlideShowView-->
+        <!--android:id="@+id/slideView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="180dp"></com.quark.dfv.ui.widget.SlideShowView>-->
+
+
+    <com.loonggg.rvbanner.lib.RecyclerViewBanner
+        android:id="@+id/viewbanner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        loonggg:rvb_indicatorSelectedSrc="@drawable/shape_indicator_selected"
+        loonggg:rvb_indicatorUnselectedSrc="@drawable/shape_indicator_unselected"
+        app:rvb_interval="1500"
+        app:rvb_showIndicator="true"></com.loonggg.rvbanner.lib.RecyclerViewBanner>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        android:background="@color/red"></View>
+
+    <GridView
+        android:id="@+id/GridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_10"
+        android:layout_marginRight="@dimen/space_10"
+        android:layout_marginTop="@dimen/space_5"
+        android:columnWidth="40dp"
+        android:gravity="center"
+        android:numColumns="4"
+        android:stretchMode="columnWidth"></GridView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        android:layout_marginTop="@dimen/space_5"
+        android:background="@color/red"></View>
+
+</LinearLayout>

@@ -1,86 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:loonggg ="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_swipe_refresh"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/materialup.appbar"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ry_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|snap">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical">
-
-
-                <com.loonggg.rvbanner.lib.RecyclerViewBanner
-                    android:id="@+id/viewbanner"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    loonggg:rvb_indicatorSelectedSrc="@drawable/shape_indicator_selected"
-                    loonggg:rvb_indicatorUnselectedSrc="@drawable/shape_indicator_unselected"
-                    app:rvb_interval="1500"
-                    app:rvb_showIndicator="true"></com.loonggg.rvbanner.lib.RecyclerViewBanner>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space_1"
-                    android:background="@color/red"></View>
-
-                <GridView
-                    android:id="@+id/GridView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/space_10"
-                    android:layout_marginRight="@dimen/space_10"
-                    android:layout_marginTop="@dimen/space_5"
-                    android:columnWidth="40dp"
-                    android:gravity="center"
-                    android:numColumns="4"
-                    android:stretchMode="columnWidth"></GridView>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/space_1"
-                    android:layout_marginTop="@dimen/space_5"
-                    android:background="@color/red"></View>
-
-
-            </LinearLayout>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-        ​
-
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/grid_swipe_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/ry_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
-
-
-</android.support.design.widget.CoordinatorLayout>
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+</android.support.v4.widget.SwipeRefreshLayout>

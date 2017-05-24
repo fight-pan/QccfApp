@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.quark.dfv.R;
 import com.quark.dfv.base.BaseFragment;
+import com.quark.dfv.ui.user.MyDataActivity;
 import com.quark.dfv.ui.user.SettingActivity;
 
 import butterknife.ButterKnife;
@@ -21,6 +22,8 @@ public class FragmentFour extends BaseFragment {
     View fourViewt;
     @InjectView(R.id.seven_ly)
     LinearLayout sevenLy;
+    @InjectView(R.id.five_ly)
+    LinearLayout fiveLy;
 
 
     @Override
@@ -28,6 +31,13 @@ public class FragmentFour extends BaseFragment {
         fourViewt = inflater.inflate(R.layout.fragment_four, container, false);
         ButterKnife.inject(this, fourViewt);
 
+        fiveLy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyDataActivity.class);
+                startActivity(intent);
+            }
+        });
         sevenLy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

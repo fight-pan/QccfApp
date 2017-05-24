@@ -7,14 +7,19 @@
     android:layout_height="wrap_content">
 
 
-
     <ImageView
-        android:visibility="gone"
         android:id="@+id/home_iv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:scaleType="centerCrop"
         android:src="@drawable/banner"
+        android:visibility="gone" />
+
+    <com.quark.dfv.ui.widget.SlideShowView
+        android:visibility="gone"
+        android:id="@+id/slideView"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="180dp"></com.quark.dfv.ui.widget.SlideShowView>
 
     <ImageView
         android:id="@+id/insurance_iv"
