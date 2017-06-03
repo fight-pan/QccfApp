@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.quark.dfv.mainview.MainActivity;
+import com.quark.dfv.ui.user.LoginActivity;
 import com.quark.dfv.util.TDevice;
 
 import org.kymjs.kjframe.utils.PreferenceHelper;
@@ -75,7 +76,7 @@ public class AppStart extends Activity {
     private void redirectTo() {
         Intent uploadLog = new Intent(this, LogUploadService.class);
         startService(uploadLog);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }

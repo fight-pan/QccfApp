@@ -22,6 +22,7 @@ import com.quark.dfv.adapter.ModuleAdapter;
 import com.quark.dfv.adapter.SettingAdapter;
 import com.quark.dfv.base.BaseActivity;
 import com.quark.dfv.base.BaseRecyclerAdapter;
+import com.quark.dfv.ui.widget.EndLessOnScrollListener;
 import com.quark.dfv.util.TLog;
 import com.tuesda.walker.circlerefresh.CircleRefreshLayout;
 
@@ -77,6 +78,16 @@ public class SettingActivity extends BaseActivity {
         ryView.setLayoutManager(layoutManager);
         adapter.addDatas(datas);
         ryView.setAdapter(adapter);
+        /**
+         * 监听addOnScrollListener这个方法，新建我们的EndLessOnScrollListener
+         * 在onLoadMore方法中去完成上拉加载的操作
+         * */
+        ryView.addOnScrollListener(new EndLessOnScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int currentPage) {
+                loadMoreData();
+            }
+        });
         adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, Object data) {
@@ -108,10 +119,25 @@ public class SettingActivity extends BaseActivity {
                 });
     }
 
+    //每次上拉加载的时候，就加载十条数据到RecyclerView中
+    private void loadMoreData(){
+        InsuranceList list = new InsuranceList();
+        for (int i = 0; i < 5; i++) {
+            list.setImage("http://dfqc.iov-dfv.net/test003.jpg");
+            list.setBrand("星星");
+            list.setType("我是上拉加载出来的");
+            datas.add(list);
+        }
+        adapter.addDatas(datas);
+        adapter.notifyDataSetChanged();
+    }
+
     private void setHeader(RecyclerView ryView) {
         View header = LayoutInflater.from(this).inflate(R.layout.header, ryView, false);
         GridView gridView = (GridView) header.findViewById(R.id.GridView);
         RecyclerViewBanner viewBanner = (RecyclerViewBanner) header.findViewById(R.id.viewbanner);
+        gridView.setFocusable(false);
+        viewBanner.setFocusable(false);
         moduleList = new ArrayList();
         mlAdapter = new ModuleAdapter(this, moduleList);
         gridView.setAdapter(mlAdapter);

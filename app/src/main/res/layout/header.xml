@@ -6,11 +6,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <!--<com.quark.dfv.ui.widget.SlideShowView-->
-        <!--android:id="@+id/slideView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="180dp"></com.quark.dfv.ui.widget.SlideShowView>-->
-
 
     <com.loonggg.rvbanner.lib.RecyclerViewBanner
         android:id="@+id/viewbanner"

@@ -1,5 +1,7 @@
 package com.quark.dfv.ui.user;
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.Selection;
@@ -7,6 +9,8 @@ import android.text.Spannable;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -16,11 +20,14 @@ import android.widget.TextView;
 import com.quark.dfv.R;
 import com.quark.dfv.base.BaseActivity;
 import com.quark.dfv.mainview.MainActivity;
+import com.quark.dfv.ui.widget.CustomVideoView;
 import com.quark.dfv.util.Utils;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+
+import static com.quark.dfv.R.id.welcome_videoview;
 
 /**
  * Created by pan on 2016/9/9 0009.
@@ -48,20 +55,36 @@ public class LoginActivity extends BaseActivity {
 
     String telephone;
     String pwd;
+    @InjectView(welcome_videoview)
+    CustomVideoView welcome_Videoview;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 //        new AppParam().setSharedPreferencesy(LoginActivity.this, "token", "");
 //        new AppParam().setSharedPreferencesy(LoginActivity.this, "isLogin", "0");
 //        userEt.setText(new AppParam().getTelephone(this));
-        setTitle("登录");
-        sign.setText("注册");
-        sign.setTextColor(ContextCompat.getColor(this, R.color.white));
-        right.setVisibility(View.VISIBLE);
+//        setTitle("登录");
+//        sign.setText("注册");
+//        sign.setTextColor(ContextCompat.getColor(this, R.color.white));
+//        right.setVisibility(View.VISIBLE);
+
+        welcome_Videoview = (CustomVideoView) this.findViewById(welcome_videoview);
+        welcome_Videoview.setVideoURI(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.kr36));
+        welcome_Videoview.start();
+        welcome_Videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                welcome_Videoview.start();
+
+            }
+        });
 
     }
 
@@ -77,7 +100,7 @@ public class LoginActivity extends BaseActivity {
 
     boolean showpssword = false;
 
-    @OnClick({R.id.left,R.id.login_bt, R.id.forgot_pwd, R.id.right, R.id.close_eye_ibt})
+    @OnClick({R.id.left, R.id.login_bt, R.id.forgot_pwd, R.id.right, R.id.close_eye_ibt})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.left:
@@ -87,6 +110,10 @@ public class LoginActivity extends BaseActivity {
 //                if (check()) {
 ////                    loginRequest();
 //                }
+                if(welcome_Videoview.isPlaying()){
+                    welcome_Videoview.stopPlayback();
+                    welcome_Videoview=null;
+                }
                 startActivityByClass(MainActivity.class);
                 finish();
                 break;

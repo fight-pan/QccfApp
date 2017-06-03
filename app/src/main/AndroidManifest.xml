@@ -102,6 +102,11 @@
             android:windowSoftInputMode="adjustPan" />
 
         <activity
+            android:name=".ui.user.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
             android:name=".ui.user.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
@@ -125,6 +130,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.user.MyDataActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.user.MyActivity"
             android:screenOrientation="portrait" />
 
     </application>

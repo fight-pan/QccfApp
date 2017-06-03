@@ -356,6 +356,13 @@ public class AppParam {
 		String liaotian_user_id = sp.getString("password", "0");
 		return liaotian_user_id;
 	}
+
+
+	public String getTime(Context context){
+		SharedPreferences sp = context.getSharedPreferences(AppParam.SHAREDPREFERENCESKEY, context.MODE_PRIVATE);
+		String liaotian_user_id = sp.getString("time", "0");
+		return liaotian_user_id;
+	}
 }
 
 

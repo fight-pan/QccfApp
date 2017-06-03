@@ -8,6 +8,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +21,12 @@ import com.loonggg.rvbanner.lib.RecyclerViewBanner;
 import com.quark.api.auto.bean.Banner;
 import com.quark.api.auto.bean.InsuranceList;
 import com.quark.api.auto.bean.ModuleList;
+import com.quark.dfv.AppParam;
 import com.quark.dfv.R;
 import com.quark.dfv.adapter.InsuranceAdapter;
 import com.quark.dfv.adapter.ModuleAdapter;
 import com.quark.dfv.base.BaseFragment;
+import com.quark.dfv.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +62,7 @@ public class FragmentOne extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         oneview = inflater.inflate(R.layout.fragment_one, container, false);
         ButterKnife.inject(this, oneview);
-
+//        new GlideCacheUtil().clearImageAllCache(getActivity());//清除缓存
         SwipeRefresh.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.red));
         SwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -77,7 +80,25 @@ public class FragmentOne extends BaseFragment {
             }
         });
         initModule();
+
+
+        //计算当前时间相差
+        String endTime = Utils.nowDateTime();
+        if (new AppParam().getTime(getActivity()) != "0") {
+            String timeCha = Utils.getTimeDifferenceHour(new AppParam().getTime(getActivity()), endTime);
+            Log.e("时间差：", timeCha);
+            if (Double.valueOf(timeCha) > 1) {
+                String starTime = Utils.nowDateTime();
+                new AppParam().setSharedPreferencesy(getActivity(), "time", starTime);
+                Log.e("Tag", "超过一小时了~~~·");
+            }
+
+        } else {
+            String starTime = Utils.nowDateTime();
+            new AppParam().setSharedPreferencesy(getActivity(), "time", starTime);
+        }
         return oneview;
+
     }
 
     private void initModule() {
@@ -133,6 +154,8 @@ public class FragmentOne extends BaseFragment {
                 Glide.with(bannerView.getContext())
                         .load(banners.get(position).getUrl())
                         .into(bannerView);
+
+//                Utils.loadImage(banners.get(position).getUrl(),bannerView);
             }
         });
         viewBanner.setOnRvBannerClickListener(new RecyclerViewBanner.OnRvBannerClickListener() {
@@ -160,7 +183,6 @@ public class FragmentOne extends BaseFragment {
         }
 
     };
-
 
     @Override
     public void onDestroyView() {

@@ -305,9 +305,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         dlg.setButton(DialogInterface.BUTTON_POSITIVE, "确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                mPlayer.stop(); //关闭播放器
-//                mPlayer.release();
-//                mPlayer = null;
                 finish();
             }
         });
