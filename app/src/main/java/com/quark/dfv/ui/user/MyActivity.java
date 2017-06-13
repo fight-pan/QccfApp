@@ -2,9 +2,11 @@ package com.quark.dfv.ui.user;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.quark.api.auto.bean.Banner;
 import com.quark.dfv.R;
 import com.quark.dfv.base.BaseActivity;
@@ -27,12 +29,13 @@ public class MyActivity extends BaseActivity {
         setContentView(R.layout.headerone);
         ButterKnife.inject(this);
 
-        com.youth.banner.Banner banner = (com.youth.banner.Banner)findViewById(R.id.banner);
+        com.youth.banner.Banner banner = (com.youth.banner.Banner) findViewById(R.id.banner);
         //设置图片集合
         List<Banner> banners = new ArrayList<>();
+        banners.add(new com.quark.api.auto.bean.Banner("http://dfqc.iov-dfv.net/test001.jpg"));
         banners.add(new com.quark.api.auto.bean.Banner("http://dfqc.iov-dfv.net/test002.jpg"));
-        banners.add(new com.quark.api.auto.bean.Banner("http://img3.duitang.com/uploads/item/201208/27/20120827162518_2iQTG.jpeg"));
-        banners.add(new com.quark.api.auto.bean.Banner("http://img3.duitang.com/uploads/item/201208/27/20120827162518_2iQTG.jpeg"));
+        banners.add(new com.quark.api.auto.bean.Banner("http://dfqc.iov-dfv.net/test003.jpg"));
+
         banner.setImages(banners);
         //设置图片加载器
         banner.setImageLoader(new GlideImageLoader());
@@ -61,14 +64,19 @@ public class MyActivity extends BaseActivity {
              切记不要胡乱强转！
              */
 //            eg：
-            //Glide 加载图片简单用法
-            Glide.with(context).load(path.toString()).into(imageView);
+            Gson gson = new Gson();
 
+            String paths = gson.toJson(path);
+
+            Banner banner = gson.fromJson(paths, Banner.class);
+            //Glide 加载图片简单用法
+            Glide.with(context).load(banner.getUrl()).into(imageView);
+//            Utils.loadImage(path.toString(),imageView);
+            Log.e("图片：", banner.getUrl());
         }
 
 
     }
-
 
 
 }

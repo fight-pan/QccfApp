@@ -12,10 +12,12 @@ import com.quark.dfv.R;
 import com.quark.dfv.base.BaseFragment;
 import com.quark.dfv.ui.user.MyActivity;
 import com.quark.dfv.ui.user.MyDataActivity;
+import com.quark.dfv.ui.user.RegisterActivity;
 import com.quark.dfv.ui.user.SettingActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 @SuppressLint("ResourceAsColor")
@@ -27,13 +29,22 @@ public class FragmentFour extends BaseFragment {
     LinearLayout fiveLy;
     @InjectView(R.id.one_ly)
     LinearLayout oneLy;
+    @InjectView(R.id.profile_image)
+    CircleImageView profileImage;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fourViewt = inflater.inflate(R.layout.fragment_four, container, false);
         ButterKnife.inject(this, fourViewt);
 
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         oneLy.setOnClickListener(new View.OnClickListener() {
             @Override

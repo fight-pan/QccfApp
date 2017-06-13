@@ -90,7 +90,7 @@ public class FragmentOne extends BaseFragment {
             if (Double.valueOf(timeCha) > 1) {
                 String starTime = Utils.nowDateTime();
                 new AppParam().setSharedPreferencesy(getActivity(), "time", starTime);
-                Log.e("Tag", "超过一小时了~~~·");
+                Log.e("Tag", "超过一小时了~~~");
             }
 
         } else {

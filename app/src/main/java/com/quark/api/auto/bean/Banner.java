@@ -7,7 +7,9 @@ package com.quark.api.auto.bean;
 public class Banner {
 
 
-    String url;
+   private String url;
+
+
 
     public Banner(String url) {
         this.url = url;
