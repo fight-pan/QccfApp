@@ -1,14 +1,6 @@
 [
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\src\\main\\res\\menu\\menu_main.xml"
-    },
-    {
         "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
         "source": "D:\\MyApp\\QccfApp\\circlerefresh\\src\\main\\res\\menu\\menu_main.xml"
-    },
-    {
-        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
-        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\src\\main\\res\\menu\\menu_main.xml"
     }
 ]

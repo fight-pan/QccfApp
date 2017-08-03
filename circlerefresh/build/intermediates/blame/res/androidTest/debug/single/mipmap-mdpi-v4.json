@@ -1,13 +1,5 @@
 [
     {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\bundles\\debug\\res\\mipmap-mdpi-v4\\ic_launcher.png"
-    },
-    {
-        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
-        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\bundles\\debug\\res\\mipmap-mdpi-v4\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
         "source": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\bundles\\debug\\res\\mipmap-mdpi-v4\\ic_launcher.png"
     }

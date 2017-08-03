@@ -3,12 +3,9 @@ package com.quark.dfv.mainview;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +18,13 @@ import com.loonggg.rvbanner.lib.RecyclerViewBanner;
 import com.quark.api.auto.bean.Banner;
 import com.quark.api.auto.bean.InsuranceList;
 import com.quark.api.auto.bean.ModuleList;
-import com.quark.dfv.AppParam;
 import com.quark.dfv.R;
 import com.quark.dfv.adapter.InsuranceAdapter;
 import com.quark.dfv.adapter.ModuleAdapter;
 import com.quark.dfv.base.BaseFragment;
-import com.quark.dfv.util.Utils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +46,16 @@ import static com.quark.dfv.api.Constants.url_3;
 public class FragmentOne extends BaseFragment {
 
     View oneview;
-    ModuleAdapter mlAdapter;
     InsuranceAdapter insuranceAdapter;
+    ModuleAdapter mlAdapter;
     ArrayList<ModuleList> moduleList;
     ArrayList<InsuranceList> insuranceLists;
     @InjectView(R.id.ry_view)
     RecyclerView ryView;
-    @InjectView(R.id.grid_swipe_refresh)
-    SwipeRefreshLayout SwipeRefresh;
+    @InjectView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
+//    @InjectView(R.id.grid_swipe_refresh)
+//    SwipeRefreshLayout SwipeRefresh;
 
 
     @Override
@@ -63,40 +63,41 @@ public class FragmentOne extends BaseFragment {
         oneview = inflater.inflate(R.layout.fragment_one, container, false);
         ButterKnife.inject(this, oneview);
 //        new GlideCacheUtil().clearImageAllCache(getActivity());//清除缓存
-        SwipeRefresh.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.red));
-        SwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//        SwipeRefresh.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.red));
+//        SwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                insuranceLists.clear();
+//                InsuranceList list = new InsuranceList();
+//                for (int i = 0; i < 5; i++) {
+//                    list.setType("健康险");
+//                    list.setBrand("国家出品");
+//                    list.setImage(url_2);
+//                    insuranceLists.add(list);
+//                }
+//                insuranceAdapter.notifyDataSetChanged();
+//                SwipeRefresh.setRefreshing(false);
+//            }
+//        });
+        refreshLayout.setPrimaryColorsId(R.color.red, android.R.color.white);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onRefresh() {
+            public void onRefresh(RefreshLayout refreshlayout) {
                 insuranceLists.clear();
                 InsuranceList list = new InsuranceList();
-                for (int i = 0; i < 5; i++) {
-                    list.setType("健康险");
-                    list.setBrand("国家出品");
-                    list.setImage(url_2);
+                for (int i = 0; i < 6; i++) {
+                    list.setType("呵护");
+                    list.setBrand("保驾护航");
+                    list.setImage("http://dfqc.iov-dfv.net/test002.jpg");
                     insuranceLists.add(list);
                 }
                 insuranceAdapter.notifyDataSetChanged();
-                SwipeRefresh.setRefreshing(false);
+                refreshlayout.finishRefresh(2000);
             }
         });
         initModule();
 
 
-        //计算当前时间相差
-        String endTime = Utils.nowDateTime();
-        if (new AppParam().getTime(getActivity()) != "0") {
-            String timeCha = Utils.getTimeDifferenceHour(new AppParam().getTime(getActivity()), endTime);
-            Log.e("时间差：", timeCha);
-            if (Double.valueOf(timeCha) > 1) {
-                String starTime = Utils.nowDateTime();
-                new AppParam().setSharedPreferencesy(getActivity(), "time", starTime);
-                Log.e("Tag", "超过一小时了~~~");
-            }
-
-        } else {
-            String starTime = Utils.nowDateTime();
-            new AppParam().setSharedPreferencesy(getActivity(), "time", starTime);
-        }
         return oneview;
 
     }

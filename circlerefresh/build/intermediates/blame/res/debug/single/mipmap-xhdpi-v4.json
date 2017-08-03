@@ -1,14 +1,6 @@
 [
     {
-        "merged": "D:\\MyApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_launcher.png",
-        "source": "D:\\MyApp\\Qccf_App\\circlerefresh\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\MyApp\\QccfApp\\circlerefresh\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_launcher.png",
         "source": "D:\\MyApp\\QccfApp\\circlerefresh\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\ic_launcher.png",
-        "source": "D:\\AndroidApp\\Qccf_App\\circlerefresh\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     }
 ]
