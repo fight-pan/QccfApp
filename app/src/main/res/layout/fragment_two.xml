@@ -12,14 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/ry_view"
+    <WebView
+        android:id="@+id/web"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@android:layout/simple_list_item_2"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></WebView>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/ry_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--tools:listitem="@android:layout/simple_list_item_2"></android.support.v7.widget.RecyclerView>-->
 
     <com.scwang.smartrefresh.layout.footer.ClassicsFooter
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srlClassicsSpinnerStyle="Translate"/>
+        app:srlClassicsSpinnerStyle="Translate" />
 </com.scwang.smartrefresh.layout.SmartRefreshLayout>
